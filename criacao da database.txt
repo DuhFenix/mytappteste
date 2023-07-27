@@ -1,0 +1,13 @@
+CREATE TABLE `db_usuario` (
+  `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
+  `usuario_login` varchar(150) NOT NULL,
+  `usuario_senha` varchar(45) NOT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_usuario`),
+  UNIQUE KEY `usuario_login_UNIQUE` (`usuario_login`),
+  KEY `id_usuario` (`id_usuario`) USING BTREE,
+  KEY `login` (`usuario_login`) USING BTREE,
+  KEY `criado_em` (`usuario_criado_em`) USING BTREE,
+  KEY `criado` (`created_at`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=226703 DEFAULT CHARSET=utf8;

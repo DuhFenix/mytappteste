@@ -1,0 +1,64 @@
+<div style="height: 100%;" class="login-page">
+    <div class="bg-opacity">
+        <div class="container pt-5 text-center">
+            <span><img class="login-logo"></span>
+            <form [formGroup]="signinForm" class="form mt-2 pr-0 text-center" #formEl>
+                <div class="row text-center pt-1 pb-3">
+                    <div class="col-md-6 col-lg-5 center">
+                        <mat-card class="text-center">
+                            <mat-card-header class="pt-2 text-center">
+                                <mat-card-title class="text-center">
+                                    <b>Acessar conta</b>
+                                </mat-card-title>
+                            </mat-card-header>
+                            <mat-card-subtitle>
+                                Faça o login para acessar a plataforma
+                            </mat-card-subtitle>
+                            <mat-card-content class="mb-1">
+
+                                <div class="form-group mb-0">
+                                    <mat-form-field class="width-90">
+                                        <input formControlName="login" matInput placeholder="E-mail">
+                                        <mat-error >
+                                            Email inválido!
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="form-group">
+                                    <mat-form-field class="width-90">
+                                        <input (keyup.enter)="loginDelay()" matInput placeholder="Senha" type="password" formControlName="password">
+                                    </mat-form-field>
+                                </div>
+                            </mat-card-content>
+
+                            <mat-card-actions class="pb-2">
+                                <div class="form-group">
+                                    <div class="mb-2">
+                                        <a class="small text-color-accent" (click)="startCreate()"><span class="font-400 font-family">Não tem conta? crie uma</span></a>
+                                    </div>
+                                    <button *ngIf="!creating" (click)="loginDelay()" mat-raised-button mat-button color="accent"
+                                        class="width-90" type="submit">
+                                        Entrar
+                                    </button>
+                                    <button *ngIf="creating" (click)="createAccount()" mat-raised-button mat-button color="accent"
+                                        class="width-90" type="submit">
+                                        Cadastrar
+                                    </button>
+                                    <button style="margin-left: 20px;"  *ngIf="creating" (click)="backCreate()" mat-raised-button mat-button color="accent"
+                                    class="width-90" type="submit">
+                                    voltar
+                                </button>
+                                    <mat-spinner class="center" *ngIf="loading" [diameter]="45">
+                                    </mat-spinner>
+                                </div>
+                            </mat-card-actions>
+                        </mat-card>
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+</div>
